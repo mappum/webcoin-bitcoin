@@ -16,6 +16,7 @@
   "author": "Matt Bell <mappum@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bitcoin-util": "0.0.0"
+    "bitcoin-util": "^2.0.0",
+    "bn.js": "^4.6.4"
   }
 }
