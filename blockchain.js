@@ -33,8 +33,8 @@ var interval = 2016
 var targetSpacing = 10 * 60
 
 // tests whether the difficulty should be changed for this block
-function shouldRetarget (block) {
-  return block.height % this.interval === 0
+function shouldRetarget (block, cb) {
+  return cb(null, block.height % this.interval === 0)
 }
 
 // calculate the new mining target (called every retarget)
@@ -46,15 +46,17 @@ function calculateTarget (prevBlock, chain, cb) {
   var endBlock = null
   var startBlock = null
 
+  var targetTimespan = this.interval * this.targetSpacing
+
   function calculate () {
     var timespan = endBlock.header.time - startBlock.header.time
-    timespan = Math.max(timespan, chain.targetTimespan() / 4)
-    timespan = Math.min(timespan, chain.targetTimespan() * 4)
+    timespan = Math.max(timespan, targetTimespan / 4)
+    timespan = Math.min(timespan, targetTimespan * 4)
 
     var target = u.expandTarget(endBlock.header.bits)
     target = new BN(target.toString('hex'), 'hex')
     target.imuln(timespan)
-    target.idivn(chain.targetTimespan())
+    target.idivn(targetTimespan)
 
     if (target.cmp(chain.maxTarget()) === 1) {
       target = chain.maxTarget()
@@ -85,20 +87,24 @@ function calculateTarget (prevBlock, chain, cb) {
 }
 
 // gets the hash of the block header used for mining/proof validation
-function miningHash (header) {
-  return new Buffer(header.hash, 'hex')
+function miningHash (header, cb) {
+  return cb(null, new Buffer(header.hash, 'hex'))
 }
 
 // settings passed to Blockchain objects
 // (see https://github.com/mappum/blockchain-spv)
 module.exports = {
+  // required
   genesisHeader,
-  checkpoints,
-
-  interval,
-  targetSpacing,
-
   shouldRetarget,
   calculateTarget,
-  miningHash
+  miningHash,
+
+  // optional
+  checkpoints,
+
+  // these fields not required for blockchain params,
+  // but are exposed so other networks can change these fields
+  interval,
+  targetSpacing
 }
