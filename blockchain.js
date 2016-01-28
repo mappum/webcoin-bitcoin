@@ -16,14 +16,14 @@ var genesisHeader = {
 // selected block headers for verifying initial sync
 var checkpoints = [
   {
-    height: 359000,
+    height: 360864,
     header: {
       version: 3,
-      prevHash: u.toHash('000000000000000006ecee94daaa034bbd026cad52a9d3c6a5b7972716e5d566'),
-      merkleRoot: u.toHash('1e24b829d04e8e6fcb71fa0de364d6c0fa952c1cdb5fad446cf2a94dd203867a'),
-      time: 1433195458,
-      bits: 0x18171a8b,
-      nonce: 3020402664
+      prevHash: u.toHash('00000000000000000d92953224570f521b09553194da1ca3c4b31a09a238f4f6'),
+      merkleRoot: u.toHash('37f752dccde0e359ce5b028fed86a4e2f937e2d3091d99f795096198cbf5c67c'),
+      time: 1434257763,
+      bits: 0x18162043,
+      nonce: 1801335478
     }
   }
 ]
