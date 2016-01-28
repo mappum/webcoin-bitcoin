@@ -58,13 +58,15 @@ function calculateTarget (prevBlock, chain, cb) {
     target.imuln(timespan)
     target.idivn(targetTimespan)
 
-    if (target.cmp(chain.maxTarget()) === 1) {
-      target = chain.maxTarget()
+    var maxTarget = new BN(chain.maxTarget().toString('hex'), 'hex')
+    if (target.cmp(maxTarget) === 1) {
+      target = maxTarget
     }
 
     var hex = target.toString('hex')
     hex = '0'.repeat(64 - hex.length) + hex
     target = new Buffer(hex, 'hex')
+
     return cb(null, target)
   }
 
