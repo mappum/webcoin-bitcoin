@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "rm -rf lib && babel --presets es2015 src -d lib",
-    "publish": "ln -s src lib"
+    "publish": "rm -rf lib && ln -s src lib"
   },
   "keywords": [
     "bitcoin",
