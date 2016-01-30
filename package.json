@@ -1,6 +1,6 @@
 {
   "name": "webcoin-bitcoin",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Bitcoin constants and network rules to use with Webcoin",
   "main": "index.js",
   "scripts": {
