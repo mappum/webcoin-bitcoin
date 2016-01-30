@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "rm -rf lib && babel --presets es2015 src -d lib",
-    "publish": "rm -rf lib && ln -s src lib"
+    "build": "rm -rf lib && babel --presets es2015 src -d lib",
+    "source": "rm -rf lib && ln -s src lib",
+    "prepublish": "npm run build",
+    "publish": "npm run source"
   },
   "keywords": [
     "bitcoin",
