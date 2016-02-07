@@ -22,7 +22,7 @@
     "bn.js": "^4.6.4"
   },
   "devDependencies": {
-    "babel-cli": "^6.4.5",
+    "babel-cli": "^6.5.0",
     "babel-preset-es2015": "^6.3.13"
   }
 }
