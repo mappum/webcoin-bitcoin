@@ -22,10 +22,14 @@
   "dependencies": {
     "bitcoin-net": "0.0.0",
     "bitcoin-util": "^2.0.0",
-    "bn.js": "^4.6.4"
+    "bn.js": "^4.6.4",
+    "browserify-buffertools": "^1.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
     "babel-preset-es2015": "^6.3.13"
+  },
+  "optionalDependencies": {
+    "buffertools": "^2.1.3"
   }
 }
