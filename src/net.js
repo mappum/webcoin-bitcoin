@@ -2,7 +2,7 @@ var seed = require('bitcoin-net/lib/seeds.js')
 
 var magic = 0xd9b4bef9
 var defaultPort = 8333
-var protocolVersion = 70002
+var protocolVersion = 70012
 
 var dnsSeeds = [
   'seed.bitcoin.sipa.be',
