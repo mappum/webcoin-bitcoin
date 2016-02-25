@@ -47,51 +47,39 @@ function shouldRetarget (block, cb) {
 // block is the block currently which we are calculating the target for
 // chain is the `Blockchain` object
 function calculateTarget (block, chain, cb) {
-  var self = this
-
-  var endBlock = null
-  var startBlock = null
-
-  var targetTimespan = this.interval * this.targetSpacing
-
-  function calculate () {
-    var timespan = endBlock.header.timestamp - startBlock.header.timestamp
-    timespan = Math.max(timespan, targetTimespan / 4)
-    timespan = Math.min(timespan, targetTimespan * 4)
-
-    var target = u.expandTarget(endBlock.header.bits)
-    target = new BN(target.toString('hex'), 'hex')
-    target.imuln(timespan)
-    target.idivn(targetTimespan)
-
-    var maxTarget = new BN(chain.maxTarget().toString('hex'), 'hex')
-    if (target.cmp(maxTarget) === 1) {
-      return cb(null, chain.maxTarget())
-    }
-
-    var hex = target.toString('hex')
-    hex = '0'.repeat(64 - hex.length) + hex
-    target = new Buffer(hex, 'hex')
-
-    return cb(null, target)
-  }
-
-  // traverse back to the block from the last retarget
-  // this is slow, TODO: index by height for random access
-  var i = 0
-  function traverse (block) {
-    chain.getBlock(block.header.prevHash, function (err, prev) {
+  chain.getBlock(block.header.prevHash, (err, end) => {
+    if (err) return cb(err)
+    // traverse back to the block from the last retarget
+    // this is slow, TODO: index by height for random access
+    chain.getBlockAtHeight(block.height - this.interval, (err, start) => {
       if (err) return cb(err)
-      if (i === 0) endBlock = prev
-      i++
-      if (i === self.interval) {
-        startBlock = prev
-        return calculate()
-      }
-      setImmediate(function () { traverse(prev) })
+      var target = calculateTargetFromInterval.call(this, chain.maxTarget(), start, end)
+      return cb(null, target)
     })
+  })
+}
+
+function calculateTargetFromInterval (maxTarget, startBlock, endBlock) {
+  var targetTimespan = this.interval * this.targetSpacing
+  var timespan = endBlock.header.timestamp - startBlock.header.timestamp
+  timespan = Math.max(timespan, targetTimespan / 4)
+  timespan = Math.min(timespan, targetTimespan * 4)
+
+  var target = u.expandTarget(endBlock.header.bits)
+  target = new BN(target.toString('hex'), 'hex')
+  target.imuln(timespan)
+  target.idivn(targetTimespan)
+
+  var maxTargetBN = new BN(maxTarget.toString('hex'), 'hex')
+  if (target.cmp(maxTargetBN) === 1) {
+    return maxTarget
   }
-  traverse(block)
+
+  var hex = target.toString('hex')
+  hex = '0'.repeat(64 - hex.length) + hex
+  target = new Buffer(hex, 'hex')
+
+  return target
 }
 
 // gets the hash of the block header used for mining/proof validation
@@ -114,5 +102,6 @@ module.exports = {
   // these fields not required for blockchain params,
   // but are exposed so other networks can change these fields
   interval,
-  targetSpacing
+  targetSpacing,
+  calculateTargetFromInterval
 }
