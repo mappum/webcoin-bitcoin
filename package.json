@@ -20,7 +20,7 @@
   "author": "Matt Bell <mappum@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bitcoin-net": "^1.0.0",
+    "bitcoin-net": "^2.2.0",
     "bitcoin-util": "^2.0.0",
     "bn.js": "^4.6.4",
     "browserify-buffertools": "^1.0.2"
