@@ -20,20 +20,12 @@
   "author": "Matt Bell <mappum@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bitcoin-net": "^1.0.0",
     "bitcoin-util": "^2.0.0",
-    "bn.js": "^4.6.4",
-    "browserify-buffertools": "^1.0.2"
+    "webcoin-params": "0.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
     "babel-preset-es2015": "^6.3.13",
     "standard": "^6.0.5"
-  },
-  "optionalDependencies": {
-    "buffertools": "^2.1.3"
-  },
-  "browser": {
-    "buffertools": "browserify-buffertools"
   }
 }
