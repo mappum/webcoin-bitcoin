@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "bitcoin-util": "^2.0.0",
-    "webcoin-params": "^0.0.1"
+    "webcoin-params": "^0.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
@@ -29,6 +29,6 @@
     "faucet": "^0.0.1",
     "standard": "^6.0.5",
     "tape": "^4.5.1",
-    "webcoin-param-tests": "^0.0.1"
+    "webcoin-param-tests": "^0.0.3"
   }
 }
