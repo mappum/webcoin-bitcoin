@@ -30,5 +30,13 @@
     "standard": "^6.0.5",
     "tape": "^4.5.1",
     "webcoin-param-tests": "^0.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mappum/webcoin-bitcoin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mappum/webcoin-bitcoin/issues"
+  },
+  "homepage": "https://github.com/mappum/webcoin-bitcoin#readme"
 }
