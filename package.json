@@ -24,7 +24,7 @@
     "webcoin-params": "^1.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.4.5",
+    "babel-cli": "^6.5.0",
     "babel-preset-es2015": "^6.3.13",
     "faucet": "^0.0.1",
     "standard": "^7.0.0",
