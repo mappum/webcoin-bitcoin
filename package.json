@@ -1,6 +1,6 @@
 {
   "name": "webcoin-bitcoin",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Bitcoin parameters for Webcoin",
   "main": "index.js",
   "scripts": {
