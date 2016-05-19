@@ -11,10 +11,10 @@ var dnsSeeds = [
   'seed.bitcoin.jonasschnelli.ch'
 ]
 var webSeeds = [
-  'us-west.seed.webcoin.io',
-  'us-east.seed.webcoin.io',
-  'eu.seed.webcoin.io',
-  'asia.seed.webcoin.io'
+  'wss://us-west.seed.webcoin.io',
+  'wss://us-east.seed.webcoin.io',
+  'wss://eu.seed.webcoin.io',
+  'wss://asia.seed.webcoin.io'
   // TODO: add more
 ]
 
