@@ -4,7 +4,7 @@
   "description": "Bitcoin parameters for Webcoin",
   "main": "index.js",
   "scripts": {
-    "test": "standard index.js src && tape test.js | faucet",
+    "test": "standard index.js src && nyc tape test/index.js | faucet && nyc report",
     "test-browser": "npm run build && ./test/browser.sh && npm run source",
     "build": "rm -rf lib && babel --presets es2015 src -d lib",
     "source": "rm -rf lib && ln -s src lib",
@@ -28,6 +28,7 @@
     "babel-cli": "^6.4.5",
     "babel-preset-es2015": "^6.3.13",
     "faucet": "^0.0.1",
+    "nyc": "^6.4.4",
     "standard": "^7.0.0",
     "tape": "^4.5.1",
     "webcoin-param-tests": "^1.0.0",
