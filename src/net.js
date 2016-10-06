@@ -11,17 +11,13 @@ var dnsSeeds = [
   'seed.bitcoin.jonasschnelli.ch'
 ]
 var webSeeds = [
-  'wss://us-west.seed.webcoin.io',
-  'wss://us-east.seed.webcoin.io',
-  'wss://eu.seed.webcoin.io',
-  'wss://asia.seed.webcoin.io'
+  'wss://us-west.seed.webcoin.io'
   // TODO: add more
 ]
 
 module.exports = {
   magic,
   defaultPort,
-
   dnsSeeds,
   webSeeds
 }
