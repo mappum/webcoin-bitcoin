@@ -11,7 +11,7 @@ var dnsSeeds = [
   'seed.bitcoin.jonasschnelli.ch'
 ]
 var webSeeds = [
-  'wss://us-west.seed.webcoin.io'
+  'wss://us-west.seed.webcoin.io:8192'
   // TODO: add more
 ]
 
