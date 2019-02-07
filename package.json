@@ -22,7 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "bitcoin-util": "^2.0.0",
-    "webcoin-params": "^1.0.0"
+    "webcoin-params": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
