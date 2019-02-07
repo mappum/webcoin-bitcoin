@@ -4,6 +4,7 @@ var u = require('bitcoin-util')
 
 // definition of the genesis block's header
 var genesisHeader = {
+  height: 0,
   version: 1,
   prevHash: u.nullHash,
   merkleRoot: u.toHash('4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b'),
@@ -15,15 +16,13 @@ var genesisHeader = {
 // selected block headers for verifying initial sync
 var checkpoints = [
   {
-    height: 360864,
-    header: {
-      version: 3,
-      prevHash: u.toHash('00000000000000000d92953224570f521b09553194da1ca3c4b31a09a238f4f6'),
-      merkleRoot: u.toHash('37f752dccde0e359ce5b028fed86a4e2f937e2d3091d99f795096198cbf5c67c'),
-      timestamp: 1434257763,
-      bits: 0x18162043,
-      nonce: 1801335478
-    }
+    version: 536870912,
+    prevHash: Buffer.from('6b05bd2c4a06b3d8503a033c2593396a25a79e1dcadb14000000000000000000', 'hex'),
+    merkleRoot: Buffer.from('1b08df3d42cd9a38d8b66adf9dc5eb464f503633bd861085ffff723634531596', 'hex'),
+    timestamp: 1548657313,
+    bits: 389048373,
+    nonce: 716662719,
+    height: 560448
   }
 ]
 
